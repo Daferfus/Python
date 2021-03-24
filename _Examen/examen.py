@@ -27,10 +27,13 @@ def get_list(fichero_de_palabras):
     diccionario = dict()
     lista_palabras = list()
     f = open(fichero_de_palabras, mode="rt", encoding="utf-8")
-    #leemos 10 caracteres
-    texto = f.read()
-    lista_ palabras.append(texto.partition(" "))
-    print(texto)
+    
+    texto = f.readlines()
+    for linea in texto:
+        for palabra in linea:
+            diccionario.update({len(palabra): palabra})
+
     return diccionario
 
 diccionario = get_list("./_Examen/fichero.txt")
+print(diccionario)
