@@ -48,10 +48,9 @@ class Cinema:
         """
         
         for row, seat in rows_seats:
-            for key, value in __self.seating[row][seat].items():
-                if value == None:
-                    num_available_seats+=1
-                # if()
+            if(self.__seating[row][seat] == None):
+                total+=1
+        return total
 
 #------------------------------------------- MAIN -----------------------------------------------
 cinema = Cinema(rows=10, seats_per_row=8)
@@ -63,10 +62,12 @@ cinema.book_seat(2,4)
 cinema.print_seating()
 
 #ERROR 2: le paso la lista de "seats" donde debería haber 2 libres y me dice que hay 0.
+# El error se debe a que le faltaba devolver el total. Al no deber nada siempre imprimia 0,
+# que era el valor asignado inicialmente a esa variable.
 print("\n------------- Error 2 -----------------")
 seats = [[2,4], [3,1], [5,2]]
 total = 0
-cinema.count_free_seats(seats,total)
+total = cinema.count_free_seats(seats,total)
 print("total: "+str(total))
 
 #ERROR 3: quiero modificar la butaca (2,4) de la lista anterior para que sea la (3,4) y no me deja.
