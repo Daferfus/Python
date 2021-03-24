@@ -22,3 +22,15 @@ try:
     print(lista_de_titulos_de_libros)
 except ValueError:
     print("El anyo de publicación del libro debe de ser entre 1900 y 2021.")
+
+def get_list(fichero_de_palabras):
+    diccionario = dict()
+    lista_palabras = list()
+    f = open(fichero_de_palabras, mode="rt", encoding="utf-8")
+    #leemos 10 caracteres
+    texto = f.read()
+    lista_ palabras.append(texto.partition(" "))
+    print(texto)
+    return diccionario
+
+diccionario = get_list("./_Examen/fichero.txt")

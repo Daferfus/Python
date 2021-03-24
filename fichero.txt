@@ -1,2 +1,0 @@
-Esto es un mensaje. Esto es otro mensaje en la misma línea. 
-Esto es un mensaje en una nueva línea.
