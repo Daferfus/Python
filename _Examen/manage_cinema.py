@@ -46,9 +46,12 @@ class Cinema:
             rows_seats: lista de butacas a buscar
             total: valor inicial donde se acumulará el total
         """
+        
         for row, seat in rows_seats:
-            if self.__seating[row][seat] == None:
-                total+=1
+            for key, value in __self.seating[row][seat].items():
+                if value == None:
+                    num_available_seats+=1
+                # if()
 
 #------------------------------------------- MAIN -----------------------------------------------
 cinema = Cinema(rows=10, seats_per_row=8)
@@ -61,12 +64,15 @@ cinema.print_seating()
 
 #ERROR 2: le paso la lista de "seats" donde debería haber 2 libres y me dice que hay 0.
 print("\n------------- Error 2 -----------------")
-seats = [(2,4), (3,1), (5,2)]
+seats = [[2,4], [3,1], [5,2]]
 total = 0
 cinema.count_free_seats(seats,total)
 print("total: "+str(total))
 
 #ERROR 3: quiero modificar la butaca (2,4) de la lista anterior para que sea la (3,4) y no me deja.
+
+# seats es una lista de tuplas, por lo que no se pueden modificar y da error.
+# para solventar este error hay que pasarlas a listas.
 print("\n------------- Error 3 -----------------")
 seats[0][1]=3
 total = 0
